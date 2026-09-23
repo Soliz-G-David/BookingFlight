@@ -23,6 +23,7 @@ public class BookFlightTest {
         BookFlightTest bookFlightTest = new BookFlightTest();
         bookFlightTest.setUp();
         bookFlightTest.search();
+        bookFlightTest.selectTravel();
     }
 
     // Search for a flight between the selected cities
@@ -36,6 +37,15 @@ public class BookFlightTest {
 
         WebElement buttonFindFlights = driver.findElement(By.cssSelector("input[value='Find Flights']"));
         buttonFindFlights.click();
+        Thread.sleep(1000);
+    }
+
+    // Select the first available flight
+    public void selectTravel() throws InterruptedException {
+
+        WebElement firstOption = driver.findElements(By.cssSelector("input.btn-small")).get(0);
+        firstOption.click();
+
         Thread.sleep(1000);
     }
 }
