@@ -33,6 +33,8 @@ public class BookFlightTest {
         selectTravel();
         payTravel();
         verifyPurchase();
+
+        driver.quit();
     }
 
     // Search for a flight between the selected cities
