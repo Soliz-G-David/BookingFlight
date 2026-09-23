@@ -11,7 +11,7 @@ public class BookFlightTest {
     private WebDriver driver;
 
     // Initialize the browser and navigate to the application
-    public void setUp() throws InterruptedException {
+    public void setUp() {
 
         driver = new ChromeDriver();
         driver.get("https://blazedemo.com/");
@@ -21,11 +21,18 @@ public class BookFlightTest {
     public static void main(String[] args) throws InterruptedException {
 
         BookFlightTest bookFlightTest = new BookFlightTest();
+
         bookFlightTest.setUp();
-        bookFlightTest.search();
-        bookFlightTest.selectTravel();
-        bookFlightTest.payTravel();
-        bookFlightTest.verifyPurchase();
+        bookFlightTest.testPurchase();
+    }
+
+    // Execute the flight booking flow
+    public void testPurchase() throws InterruptedException {
+
+        search();
+        selectTravel();
+        payTravel();
+        verifyPurchase();
     }
 
     // Search for a flight between the selected cities
