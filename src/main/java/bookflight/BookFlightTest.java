@@ -25,6 +25,7 @@ public class BookFlightTest {
         bookFlightTest.search();
         bookFlightTest.selectTravel();
         bookFlightTest.payTravel();
+        bookFlightTest.verifyPurchase();
     }
 
     // Search for a flight between the selected cities
@@ -93,4 +94,15 @@ public class BookFlightTest {
         purchaseButton.click();
     }
 
+    // Verify that purchase was completed successfully
+    public void verifyPurchase() {
+
+        WebElement confirmationMessage = driver.findElement(By.xpath("//h1[text()='Thank you for your purchase today!']"));
+
+        if (confirmationMessage.isDisplayed()) {
+            System.out.println("TEST PASSED");
+        } else {
+            System.out.println("TEST FAILED");
+        }
+    }
 }
